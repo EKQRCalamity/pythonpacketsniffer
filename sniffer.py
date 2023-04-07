@@ -11,31 +11,37 @@ if __name__ == "__main__":
     onlyoutgoing = False
     onlyunknown = False
     all = False
-    if sys.argv[1] == "-i":
-        onlyincoming = True
-        print("Only capturing incoming packets...")
-    elif sys.argv[1] == "-o":
-        onlyoutgoing = True
-        print("Only capturing outgoing packets...")
-    elif sys.argv[1] == "-u":
-        onlyunknown = True
-        print("Only capturing unknown packets...")
-    elif sys.argv[1] == "-a" or not onlyincoming and not onlyoutgoing and not onlyunknown:
+    if len(sys.argv) > 1:
+        if sys.argv[1] == "-i":
+            onlyincoming = True
+            print("Only capturing incoming packets...")
+        elif sys.argv[1] == "-o":
+            onlyoutgoing = True
+            print("Only capturing outgoing packets...")
+        elif sys.argv[1] == "-u":
+            onlyunknown = True
+            print("Only capturing unknown packets...")
+        elif sys.argv[1] == "-a" or not onlyincoming and not onlyoutgoing and not onlyunknown:
+            all = True
+    else:
         all = True
 
     onlyudp = False
     onlytcp = False
     onlyicmp = False
     alllayers = False
-    if sys.argv[2] == "-udp" or sys.argv[2] == "-u":
-        onlyudp = True
-        print("Only capturing UDP packets...")
-    elif sys.argv[2] == "-tcp" or sys.argv[2] == "-t":
-        onlytcp = True
-        print("Only capturing TCP packets...")
-    elif sys.argv[2] == "-icmp" or sys.argv[2] == "-i":
-        onlyicmp = True
-        print("Only capturing ICMP packets...")
+    if len(sys.argv) > 2:
+        if sys.argv[2] == "-udp" or sys.argv[2] == "-u":
+            onlyudp = True
+            print("Only capturing UDP packets...")
+        elif sys.argv[2] == "-tcp" or sys.argv[2] == "-t":
+            onlytcp = True
+            print("Only capturing TCP packets...")
+        elif sys.argv[2] == "-icmp" or sys.argv[2] == "-i":
+            onlyicmp = True
+            print("Only capturing ICMP packets...")
+        else:
+            alllayers = True
     else:
         alllayers = True
     # the public network interface
