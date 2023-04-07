@@ -2,6 +2,7 @@
 
 # Simple Pythong Packet Sniffer
 A simple python sniffer with command line arguments to filter output. Currently detects UDP, TCP and ICMP packets.
+Please change the variable myIpaddress on line 5 to your PCs IP address on the network.
 ##### Command line arguments are expected to be used in following order: [incoming/outgoing] [protocol]
 ## Incoming Arguments
 -i for incoming<br>
