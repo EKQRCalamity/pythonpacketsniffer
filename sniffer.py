@@ -2,6 +2,10 @@ import socket
 import struct
 import sys
 if __name__ == "__main__":
+    myIpaddress = "";
+    localaddresses = ["192.168.1.1",
+                      "192.168.2.2",
+                      "192.168.2.1"]
     # print(f"Arguments given: {len(sys.argv)}")
     onlyincoming = False
     onlyoutgoing = False
@@ -47,10 +51,7 @@ if __name__ == "__main__":
     # receive all packages
     s.ioctl(socket.SIO_RCVALL, socket.RCVALL_ON)
 
-    myIpaddress = "192.168.2.137";
-    localaddresses = ["192.168.2.137",
-                      "192.168.2.187",
-                      "192.168.2.1"]
+    
 
     while(True):
         data=s.recvfrom(65565)
